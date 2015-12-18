@@ -12,6 +12,10 @@ class View
     puts "Hello user we know you're in a hurry so we wont waste your time. What borough are you in?"
   end
 
+  def request_address
+    puts "What is your current street address?"
+  end
+
   def print_toilet(toilet)
     puts "How about going to #{toilet["name"]}? There is a bathroom located at #{toilet["location"]}."
   end

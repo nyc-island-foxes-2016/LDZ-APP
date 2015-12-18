@@ -6,7 +6,7 @@ module Findable
   def toilets_in_borough
     toilets = open("http://data.cityofnewyork.us/resource/hjae-yuav.json?borough=#{self.borough}")
     toilets_string = toilets.read
-    toilets_parsed = JSON.parse(toilets_string).shuffle
+    toilets_parsed = JSON.parse(toilets_string)
   end
 
   def next_toilet(all_toilets)

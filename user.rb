@@ -2,8 +2,7 @@ require_relative 'findable'
 
 class User
   include Findable
-  attr_reader :address
-  attr_accessor :borough
+  attr_accessor :borough, :address
 
   def initialize
     @address = ""
