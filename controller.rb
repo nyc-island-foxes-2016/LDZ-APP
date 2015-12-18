@@ -27,8 +27,6 @@ class Controller
     end
     @user.borough = borough_input
     user_toilet_options = @user.toilets_in_borough
-    binding.pry
-    user_toilet_options = user_toilet_options[0..1]
     @viewer.request_address
     user_coords = get_coords(@viewer.get_input)
     user_toilet_options.each do |hash|
@@ -37,15 +35,10 @@ class Controller
         @closest_distance = current_distance
         @closest_toilet = hash
       end
+      sleep(0.15)
     end
     @viewer.print_toilet(@closest_toilet)
 
-    # until @decision == "yes"
-    #   @viewer.print_toilet(next_toilet(user_toilet_options))
-    #   @viewer.suffice?
-    #   @decision = @viewer.get_input
-    #   @viewer.option_response if @decision == "no"
-    # end
     @viewer.end_message
   end
 

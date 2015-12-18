@@ -4,7 +4,7 @@ require 'json'
 module Findable
 
   def toilets_in_borough
-    toilets = open("http://data.cityofnewyork.us/resource/hjae-yuav.json?borough=#{self.borough}")
+    toilets = open("http://data.cityofnewyork.us/resource/hjae-yuav.json?borough=#{self.borough}&$where=location%20is%20not%20null")
     toilets_string = toilets.read
     toilets_parsed = JSON.parse(toilets_string)
   end
