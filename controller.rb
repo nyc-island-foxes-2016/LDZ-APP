@@ -23,7 +23,7 @@ class Controller
     end
     @user.borough = borough_input
     user_toilet_options = @user.toilets_in_borough
-    until decision == "yes"
+    until @decision == "yes"
       @viewer.print_toilet(next_toilet(user_toilet_options))
       @viewer.suffice?
       @decision = @viewer.get_input
