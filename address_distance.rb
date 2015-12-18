@@ -3,15 +3,19 @@ require 'geocoder'
 module AddressDistances
 
   def address_to_lat_long(address)
-    address_info =  Geocoder.search(address << ", NY, NY")
-    my_lat = address_info[0].data["geometry"]["location"]
+    if address != nil
+      address_info =  Geocoder.search(address << ", NY, NY")
+      my_lat = address_info[0].data["geometry"]["location"]
+    end
     # my_long=my_location[0].data["geometry"]["location"]["lng"]
   end
 
   def distance_between(my_coords, address_coords)
-    del_lat = my_coords["lat"] - address_coords["lat"]
-    del_lng = my_coords["lng"] - address_coords["lng"]
-    distance = Math.sqrt(del_lat**2 + del_lng**2)
+    if address_coords != nil
+      del_lat = my_coords["lat"] - address_coords["lat"]
+      del_lng = my_coords["lng"] - address_coords["lng"]
+      distance = Math.sqrt(del_lat**2 + del_lng**2)
+    end
   end
 
 end
