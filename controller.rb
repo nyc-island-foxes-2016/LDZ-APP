@@ -27,18 +27,19 @@ class Controller
     end
     @user.borough = borough_input
     user_toilet_options = @user.toilets_in_borough
-    #TESTING!
+    binding.pry
     user_toilet_options = user_toilet_options[0..1]
     @viewer.request_address
-    # binding.pry
     user_coords = get_coords(@viewer.get_input)
-    # user_toilet_options["location"]
     user_toilet_options.each do |hash|
-      if @closest_distance == nil || distance_between(user_coords, get_coords(hash["location"])) < @closest_distance
+      current_distance = distance_between(user_coords, get_coords(hash["location"]))
+      if @closest_distance == nil || current_distance < @closest_distance
+        @closest_distance = current_distance
         @closest_toilet = hash
       end
     end
     @viewer.print_toilet(@closest_toilet)
+
     # until @decision == "yes"
     #   @viewer.print_toilet(next_toilet(user_toilet_options))
     #   @viewer.suffice?
