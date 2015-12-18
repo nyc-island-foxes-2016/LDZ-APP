@@ -1,6 +1,6 @@
 require 'geocoder'
 
-class AddressDistances
+module AddressDistances
 
   def address_to_lat_long(address)
     address_info =  Geocoder.search(address << ", NY, NY")
@@ -16,14 +16,14 @@ class AddressDistances
 
 end
 
-something = AddressDistances.new
+# something = AddressDistances.new
 
-my_address = "112 7th ave"
+# my_address = "112 7th ave"
 
-other_address = "160 100th St"
+# other_address = "160 100th St"
 
-my_coo = something.address_to_lat_long(my_address)
+# my_coo = something.address_to_lat_long(my_address)
 
-other_coo = something.address_to_lat_long(other_address)
+# other_coo = something.address_to_lat_long(other_address)
 
-puts something.distance_between(my_coo, other_coo)
+# puts something.distance_between(my_coo, other_coo)
